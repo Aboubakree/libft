@@ -1,27 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akrid <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/01 15:32:45 by akrid             #+#    #+#             */
-/*   Updated: 2023/11/03 12:12:31 by akrid            ###   ########.fr       */
+/*   Created: 2023/11/02 17:37:22 by akrid             #+#    #+#             */
+/*   Updated: 2023/11/02 18:35:45 by akrid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strrchr(const char *s, int c)
-{
-	char	*temp;
+include "libft.h"
 
-	temp = 0;
-	while (*s)
-	{
-		if (*s == c)
-			temp = (char *)s;
-		s ++;
-	}
-	if (c == '\0')
-		return ((char *)s);
-	return (temp);
+size_t	strlcpy(char * restrict dst, const char * restrict src, size_t dstsize)
+{
+	
 }

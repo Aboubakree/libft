@@ -6,16 +6,22 @@
 /*   By: akrid <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 16:03:27 by akrid             #+#    #+#             */
-/*   Updated: 2023/11/01 18:59:31 by akrid            ###   ########.fr       */
+/*   Updated: 2023/11/02 15:11:32 by akrid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strncmp(const char *s1, const char *s2, int n)
+int	ft_strncmp(const char *s1, const char *s2, unsigned int n)
 {
-	int	i;
+	unsigned int	i;
 
 	i = 0;
-	while (s1[i] == s2[i] && s1[i + 1] && s2[i + 1] && i < n)
+	while (i < n)
+	{
+		if (!s1[i] || !s2[i])
+			return (s1[i] - s2[i]);
+		if (s1[i] != s2[i])
+			return (s1[i] - s2[i]);
 		i ++;
-	return (s1[i] - s2[i]);
+	}
+	return (0);
 }

@@ -6,20 +6,24 @@
 /*   By: akrid <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 14:56:49 by akrid             #+#    #+#             */
-/*   Updated: 2023/11/01 15:11:30 by akrid            ###   ########.fr       */
+/*   Updated: 2023/11/02 21:44:31 by akrid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(char *s, int c)
+char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	int		i;
+	char	*tem;
 
 	i = 0;
-	while (s[i])
+	tem = (char *)s;
+	while (tem[i])
 	{
-		if (s[i] == c)
-			return (&s[i]);
+		if (tem[i] == c)
+			return (&tem[i]);
 		i ++;
 	}
+	if (c == '\0')
+		return (&tem[i]);
 	return (0);
 }
