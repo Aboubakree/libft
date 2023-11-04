@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akrid <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 17:37:22 by akrid             #+#    #+#             */
-/*   Updated: 2023/11/03 16:15:38 by akrid            ###   ########.fr       */
+/*   Created: 2023/11/03 23:25:53 by akrid             #+#    #+#             */
+/*   Updated: 2023/11/04 08:42:34 by akrid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+int	ft_atoi(const char *str)
 {
-	size_t	i;
+	int	ng;
+	int	res;
 
-	i = 0;
-	while (src[i] && i < dstsize - 1)
+	ng = 1;
+	res = 0;
+	while (*str == ' ' || *str == '\t' || *str == '\n')
+		str ++;
+	if (*str == '-' || *str == '+')
 	{
-		dst[i] = src[i];
-		i ++;
+		if (*str == '-')
+			ng = -ng;
+		str ++;
 	}
-	if (dstsize)
-		dst[dstsize - 1] = '\0';
-	return (ft_strlen(src));
+	while (*str >= '0' && *str <= '9')
+	{
+		res *= 10;
+		res += *str - '0';
+		str ++;
+	}
+	return (res * ng);
 }

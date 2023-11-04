@@ -1,28 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akrid <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 17:37:22 by akrid             #+#    #+#             */
-/*   Updated: 2023/11/03 16:15:38 by akrid            ###   ########.fr       */
+/*   Created: 2023/11/03 16:32:00 by akrid             #+#    #+#             */
+/*   Updated: 2023/11/03 20:19:58 by akrid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
 	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while (src[i] && i < dstsize - 1)
+	if (ft_strlen(needle) == 0)
+		return ((char *)haystack);
+	while (haystack[i])
 	{
-		dst[i] = src[i];
+		j = 0;
+		while (haystack[i + j] == needle[j] && (i + j) < len && haystack[i])
+		{
+			if (needle[j] == '\0')
+				return ((char *)&haystack[i]);
+			j ++;
+		}
+		if (needle[j] == '\0')
+			return ((char *)(&haystack[i]));
 		i ++;
 	}
-	if (dstsize)
-		dst[dstsize - 1] = '\0';
-	return (ft_strlen(src));
+	return (0);
 }
