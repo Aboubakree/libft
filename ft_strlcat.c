@@ -6,7 +6,7 @@
 /*   By: akrid <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 20:22:13 by akrid             #+#    #+#             */
-/*   Updated: 2023/11/03 23:24:20 by akrid            ###   ########.fr       */
+/*   Updated: 2023/11/05 02:08:58 by akrid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 
 	i = 0;
 	src_len = ft_strlen(src);
-	if (dst == NULL)
-		return (src_len + dstsize);
 	j = ft_strlen(dst);
 	dst_len = j;
 	if (dst_len >= dstsize)
