@@ -1,30 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akrid <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/04 08:55:51 by akrid             #+#    #+#             */
-/*   Updated: 2023/11/11 23:32:37 by akrid            ###   ########.fr       */
+/*   Created: 2023/11/12 13:17:35 by akrid             #+#    #+#             */
+/*   Updated: 2023/11/12 14:01:48 by akrid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+static int	count_words(char const *s, char c)
 {
-	size_t			i;
-	unsigned char	x;
-	unsigned char	*tem;
+	int	i;
+	int	count;
+	int	b;
 
 	i = 0;
-	tem = b;
-	x = c;
-	while (i < len)
+	count = 0;
+	b = 1;
+	while (s[i] && s[i] == c)
+		i ++;
+	while (s[i])
 	{
-		tem[i] = x;
+		if (s[i] != c && b)
+		{
+			count ++;
+			b = 0;
+		}
+		if (s[i] == c)
+			b = 1;
 		i ++;
 	}
-	return (b);
+	return (count);
+}
+
+
+
+char	**ft_split(char const *s, char c)
+{
+	
+}
+
+
+int main()
+{
+	printf("%d",count_words("", '\0'));
 }
