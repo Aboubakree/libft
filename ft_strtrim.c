@@ -6,11 +6,12 @@
 /*   By: akrid <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:23:15 by akrid             #+#    #+#             */
-/*   Updated: 2023/11/12 18:44:41 by akrid            ###   ########.fr       */
+/*   Updated: 2023/11/13 09:47:01 by akrid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 static int	check_char(char c, const char *set)
 {

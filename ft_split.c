@@ -6,7 +6,7 @@
 /*   By: akrid <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 13:17:35 by akrid             #+#    #+#             */
-/*   Updated: 2023/11/12 14:01:48 by akrid            ###   ########.fr       */
+/*   Updated: 2023/11/13 22:38:27 by akrid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ static int	count_words(char const *s, char c)
 	i = 0;
 	count = 0;
 	b = 1;
-	while (s[i] && s[i] == c)
-		i ++;
 	while (s[i])
 	{
 		if (s[i] != c && b)
@@ -30,22 +28,115 @@ static int	count_words(char const *s, char c)
 			count ++;
 			b = 0;
 		}
-		if (s[i] == c)
+		if (s[i] == c && b == 0)
 			b = 1;
 		i ++;
 	}
 	return (count);
 }
 
+static int	count_len(char const *s, char c, int *i)
+{
+	int	count;
 
+	count = 0;
+	while (s[*i] == c)
+		*i = *i + 1;
+	while (s[*i])
+	{
+		if (s[*i] != c)
+			count ++;
+		if (s[*i] == c)
+			return (count);
+		*i = *i + 1;
+	}
+	return (count);
+}
+
+static char	**allocat_mem(char const *s, char c)
+{
+	char	**temp;
+	int		size;
+	int		i;
+	int		k;
+
+	size = count_words(s, c);
+	temp = (char **)malloc((size + 1) * sizeof(char *));
+	if (temp == NULL)
+		return (NULL);
+	k = 0;
+	i = 0;
+	while (k < size)
+	{
+		temp[k] = malloc((count_len(s, c, &i) + 1) * sizeof(char));
+		if (temp[k] == NULL)
+		{
+			while (k > 0)
+				free(temp[--k]);
+			free(temp);
+			return (NULL);
+		}
+		k ++;
+	}
+	temp[k] = NULL;
+	return (temp);
+}
+
+static char	**copy_splited(char **split, char const *s, char c, int j)
+{
+	int	i;
+	int	k;
+
+	i = 0;
+	while (split[i])
+	{
+		k = 0;
+		while (s[j] == c)
+			j ++;
+		while (s[j])
+		{
+			if (s[j] != c)
+				split[i][k ++] = s[j];
+			if (s[j] == c)
+			{
+				split[i][k] = '\0';
+				break ;
+			}
+			j ++;
+		}
+		if (s[j] == '\0')
+			split[i][k] = '\0';
+		i ++;
+	}
+	return (split);
+}
 
 char	**ft_split(char const *s, char c)
 {
-	
+	char	**split;
+	int		j;
+
+	j = 0;
+	split = allocat_mem(s, c);
+	if (split == NULL)
+		return (NULL);
+	split = copy_splited(split, s, c, j);
+	return (split);
 }
-
-
+/*
 int main()
 {
-	printf("%d",count_words("", '\0'));
+	char **test;
+	int i = 0;
+
+	test = ft_split("hello!", ' ');
+
+	while (test[i])
+		printf("%s\n",test[i ++]);
+	i = 0;
+	while (test[i])
+		free(test[i ++]);
+	free(test);
+	return (0);
 }
+*/
