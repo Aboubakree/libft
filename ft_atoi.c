@@ -6,7 +6,7 @@
 /*   By: akrid <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 23:25:53 by akrid             #+#    #+#             */
-/*   Updated: 2023/11/05 15:55:35 by akrid            ###   ########.fr       */
+/*   Updated: 2023/11/15 13:16:04 by akrid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,13 @@ int	ft_atoi(const char *str)
 	}
 	return (res * ng);
 }
+/*
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+
+{
+	printf("mine ; %d\nSTANDARD : %d", ft_atoi("2147483648"), atoi("2147483648"));
+}
+*/
