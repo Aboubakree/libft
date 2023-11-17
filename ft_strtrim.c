@@ -6,7 +6,7 @@
 /*   By: akrid <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 11:23:15 by akrid             #+#    #+#             */
-/*   Updated: 2023/11/13 09:47:01 by akrid            ###   ########.fr       */
+/*   Updated: 2023/11/16 23:43:32 by akrid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,6 @@ static int	count_droped(char const *s1, char const *set, int *i, int *j)
 
 	*i = 0;
 	count = 0;
-	if (s1 == NULL || set == NULL)
-		return (0);
 	while (s1[*i] && check_char(s1[*i], set))
 	{
 		count ++;
@@ -56,16 +54,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		j;
 	int		k;
 
+	if (s1 == NULL || set == NULL)
+		return (NULL);
 	k = ft_strlen(s1) - count_droped(s1, set, &i, &j) + 1;
 	trim = (char *)malloc(k * sizeof(char));
 	if (trim == NULL)
 		return (NULL);
 	k = 0;
-	if (s1 != NULL && set != NULL)
-	{
-		while (s1[i] && i <= j)
-			trim[k ++] = s1[i ++];
-	}
+	while (s1[i] && i <= j)
+		trim[k ++] = s1[i ++];
 	trim[k] = '\0';
 	return (trim);
 }

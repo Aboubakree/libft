@@ -6,7 +6,7 @@
 /*   By: akrid <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 17:39:23 by akrid             #+#    #+#             */
-/*   Updated: 2023/11/14 21:29:52 by akrid            ###   ########.fr       */
+/*   Updated: 2023/11/16 23:33:24 by akrid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,29 +20,3 @@ t_list	*ft_lstlast(t_list *lst)
 		lst = lst -> next;
 	return (lst);
 }
-/*
-int	main()
-{
-    t_list    *li = NULL;
-    t_list    *p = NULL, *q = NULL;
-    //int    x = 15, y = 20, *z;
-	char	x = 'A', y = 'B', *z;
-    p = ft_lstnew(&x);
-    q = ft_lstnew(&y);
-    ft_lstadd_front(&li, p);
-    ft_lstadd_front(&li, q);
-    p = li;
-    while (p)
-    {
-        z = (p -> content);
-        //printf("content : %d\nnext : %p\n", *z, p -> next);
-		printf("content : %c\nnext : %p\n", *z, p -> next);
-        p = (p -> next);
-    }
-	p = ft_lstlast(li);
-	z = (p -> content);
-	printf("%c\nsize : %d", *z,  ft_lstsize(p));
-    free(li);
-    return (0);
-}
-*/

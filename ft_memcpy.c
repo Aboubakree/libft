@@ -6,7 +6,7 @@
 /*   By: akrid <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 09:04:08 by akrid             #+#    #+#             */
-/*   Updated: 2023/11/10 16:41:09 by akrid            ###   ########.fr       */
+/*   Updated: 2023/11/16 18:03:01 by akrid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	s = (unsigned char *)src;
 	i = 0;
 	if (!d && !s)
-		return (0);
+		return (NULL);
 	while (i < n)
 	{
 		d[i] = s[i];

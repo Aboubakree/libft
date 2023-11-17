@@ -6,7 +6,7 @@
 /*   By: akrid <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 18:13:45 by akrid             #+#    #+#             */
-/*   Updated: 2023/11/14 22:44:30 by akrid            ###   ########.fr       */
+/*   Updated: 2023/11/16 23:26:01 by akrid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,20 +33,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	maped[i] = '\0';
 	return (maped);
 }
-/*
-char upper(unsigned int i, char c)
-{
-	if (c >= 'a' && c <= 'z' && i >= 0)
-		return (c - 32);
-	return (c);
-}
-
-int	main()
-{
-	char *r;
-
-	r = ft_strmapi("aboubakr", &upper);
-	printf("%s",r);
-	free(r);
-}
-*/

@@ -6,7 +6,7 @@
 /*   By: akrid <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/14 10:20:22 by akrid             #+#    #+#             */
-/*   Updated: 2023/11/14 10:43:18 by akrid            ###   ########.fr       */
+/*   Updated: 2023/11/17 10:25:17 by akrid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,3 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 		}
 	}
 }
-/*
-void upper(unsigned int i, char *c)
-{
-	if (*c >= 'a' && *c <= 'z' && i >= 0)
-		 *c = *c - 32;
-}
-
-int	main()
-{
-	char r[] = "aboubakr";
-
-	ft_striteri(r, &upper);
-	printf("%s",r);
-}
-*/

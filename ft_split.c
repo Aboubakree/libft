@@ -6,7 +6,7 @@
 /*   By: akrid <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/12 13:17:35 by akrid             #+#    #+#             */
-/*   Updated: 2023/11/14 22:41:10 by akrid            ###   ########.fr       */
+/*   Updated: 2023/11/16 23:42:26 by akrid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,8 @@ char	**ft_split(char const *s, char c)
 	char	**split;
 	int		j;
 
+	if (s == NULL)
+		return (NULL);
 	j = 0;
 	split = allocat_mem(s, c);
 	if (split == NULL)
@@ -123,20 +125,3 @@ char	**ft_split(char const *s, char c)
 	split = copy_splited(split, s, c, j);
 	return (split);
 }
-/*
-int main()
-{
-	char **test;
-	int i = 0;
-
-	test = ft_split("hello!", ' ');
-
-	while (test[i])
-		printf("%s\n",test[i ++]);
-	i = 0;
-	while (test[i])
-		free(test[i ++]);
-	free(test);
-	return (0);
-}
-*/

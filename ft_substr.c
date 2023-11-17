@@ -6,7 +6,7 @@
 /*   By: akrid <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 21:57:27 by akrid             #+#    #+#             */
-/*   Updated: 2023/11/11 17:46:51 by akrid            ###   ########.fr       */
+/*   Updated: 2023/11/17 11:42:30 by akrid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (s == NULL)
 		return (copy_sub(sub, s, 0, 0));
 	s_len = ft_strlen(s);
-	if (len <= s_len - (size_t)start && start <= s_len)
+	if (len <= s_len - (size_t)start && (size_t)start <= s_len)
 		return (copy_sub(sub, s, (size_t)start, len));
-	else if (start <= s_len)
+	else if ((size_t)start <= s_len)
 		return (copy_sub(sub, s, (size_t)start, s_len - (size_t)start));
 	return (copy_sub(sub, s, 0, 0));
 }

@@ -6,7 +6,7 @@
 /*   By: akrid <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 22:39:22 by akrid             #+#    #+#             */
-/*   Updated: 2023/11/14 09:16:07 by akrid            ###   ########.fr       */
+/*   Updated: 2023/11/16 23:28:15 by akrid            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,3 @@ void	ft_putendl_fd(char *s, int fd)
 	ft_putstr_fd(s, fd);
 	ft_putchar_fd('\n', fd);
 }
-/*
-int main()
-{
-	int	fd = open("test.txt", O_APPEND | O_WRONLY | O_RDONLY);
-	ft_putendl_fd("\tgood", fd);
-	close(fd);
-	return 0;
-}
-*/
