@@ -18,7 +18,7 @@ $(NAME) : $(OBJ)
 	cc ${CFLAGS} -o $@ -c $^
 
 ${OBJ_BONUS} : ${SRC_BONUS}
-	cc ${CFALGS} -o $@ -c $^
+	cc ${CFALGS} -c $^
 	ar rcs ${NAME} ${OBJ_BONUS}
 
 bonus : ${OBJ_BONUS}
